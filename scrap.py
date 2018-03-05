@@ -2,6 +2,9 @@ from bs4 import BeautifulSoup
 import urllib2
 
 
+URL = "https://www.packtpub.com/packt/offers/free-learning/"
+
+
 """
 	Prints the given elements in this format:
 	<title>
@@ -11,6 +14,8 @@ import urllib2
 		...
 """
 def print_info(title, subtitle, description):
+
+	print("******** Info from " + URL + " ********")
 	
     print("\n" + title + "\n")
     print("\t" + subtitle + "\n")
@@ -24,8 +29,7 @@ def print_info(title, subtitle, description):
 """
 def scrap():
 
-    html = urllib2.urlopen("https://www.packtpub.com/packt/offers/" +\
-                           "free-learning/").read()
+    html = urllib2.urlopen(URL).read()
     soup = BeautifulSoup(html, "lxml")
 
     # Get title
